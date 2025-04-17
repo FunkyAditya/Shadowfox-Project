@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSK</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cskYellow: '#fbbf24',
+            darkBg: '#0f172a',
+            cardBg: 'rgba(255,255,255,0.05)',
+            accentBlue: '#2563eb'
+          },
+          fontFamily: { sans: ['Montserrat','sans-serif'] },
+          keyframes: {
+            fadeIn: { '0%': { opacity:0 }, '100%': { opacity:1 } },
+            floatY: { '0%,100%': { transform:'translateY(0)' }, '50%': { transform:'translateY(8px)' } }
+          },
+          animation: {
+            fadeIn: 'fadeIn 1s ease-out forwards',
+            floatY: 'floatY 4s ease-in-out infinite'
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #0f172a; --fg: #e5e7eb; }
+    [data-theme='light'] { --bg: #f9fafb; --fg: #1f2937; }
+    body { background-color: var(--bg); color: var(--fg); }
+    .card { background: var(--bg); backdrop-filter: blur(8px); }
+    body::-webkit-scrollbar { width:6px; }
+    body::-webkit-scrollbar-thumb { background:#374151; border-radius:3px; }
+  </style>
+</head>
+<body class="antialiased">
+  <header class="fixed inset-x-0 top-0 bg-opacity-70 backdrop-blur-md border-b border-gray-700 z-50" style="background-color: var(--bg)">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <div class="flex items-center space-x-3 animate-fadeIn">
+        <img src="https://upload.wikimedia.org/wikipedia/en/2/2b/Chennai_Super_Kings_Logo.svg" alt="CSK Logo" class="h-10 animate-floatY" />
+        <h1 class="text-3xl font-extrabold text-cskYellow">CSK</h1>
+      </div>
+      <nav class="flex items-center space-x-6">
+        <ul class="hidden md:flex space-x-8 uppercase tracking-wide text-sm">
+          <li><a href="#schedule" class="hover:text-cskYellow transition">Schedule</a></li>
+          <li><a href="#players" class="hover:text-cskYellow transition">Players</a></li>
+          <li><a href="#stats" class="hover:text-cskYellow transition">Stats</a></li>
+          <li><a href="#news" class="hover:text-cskYellow transition">News</a></li>
+          <li><a href="#polls" class="hover:text-cskYellow transition">Polls</a></li>
+          <li><a href="#highlights" class="hover:text-cskYellow transition">Highlights</a></li>
+        </ul>
+        <button id="theme-toggle" class="p-2 rounded-full bg-cardBg hover:bg-gray-600 transition" aria-label="Toggle Theme">
+          <svg id="icon-light" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464"/></svg>
+          <svg id="icon-dark" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="pt-20 h-screen relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1561622340-8c5e86b0505d?auto=format&fit=crop&w=1740&q=80')] bg-cover bg-center mix-blend-overlay"></div>
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 animate-fadeIn">
+      <h2 class="text-6xl md:text-7xl font-extrabold text-cskYellow mb-4">Roar with the Lions</h2>
+      <p class="text-lg md:text-xl max-w-2xl mb-6">Feel the adrenaline, celebrate the spirit, and unite with CSK fans worldwide.</p>
+      <a href="#schedule" class="inline-flex items-center space-x-2 bg-gradient-to-r from-cskYellow to-accentBlue text-darkBg font-semibold px-8 py-3 rounded-full uppercase tracking-wide hover:scale-105 transition">
+        <span>View Schedule</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L13.586 11H4a1 1 0 110-2h9.586l-3.293-3.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+      </a>
+    </div>
+    <div class="absolute bottom-0 w-full overflow-hidden leading-[0] rotate-180">
+      <svg viewBox="0 0 500 150" preserveAspectRatio="none" class="w-full h-16"><path d="M0,49 C150,150 350,0 500,49 L500,150 L0,150 Z" fill="var(--bg)"></path></svg>
+    </div>
+  </section>
+
+  <main class="max-w-7xl mx-auto px-6 py-20 space-y-24">
+    <section id="schedule" class="scroll-mt-32">
+      <h2 class="text-4xl font-bold text-cskYellow mb-8">Match Schedule</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card rounded-3xl p-8 shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] transition">
+          <p class="font-semibold text-xl">April 22</p>
+          <p class="mt-1 text-lg">CSK vs MI</p>
+          <span class="block mt-2 text-gray-400">@ Chennai</span>
+        </div>
+        <div class="card rounded-3xl p-8 shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] transition delay-100">
+          <p class="font-semibold text-xl">April 26</p>
+          <p class="mt-1 text-lg">CSK vs RCB</p>
+          <span class="block mt-2 text-gray-400">@ Bengaluru</span>
+        </div>
+        <div class="card rounded-3xl p-8 shadow-2xl hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] transition delay-200">
+          <p class="font-semibold text-xl">May 2</p>
+          <p class="mt-1 text-lg">CSK vs DC</p>
+          <span class="block mt-2 text-gray-400">@ Chennai</span>
+        </div>
+      </div>
+    </section>
+    <section id="players" class="scroll-mt-32">
+      <h2 class="text-4xl font-bold text-cskYellow mb-8">Star Players</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card rounded-3xl p-8 text-center shadow-2xl transition hover:scale-105">
+          <img src="https://cricketbetpro.com/wp-content/uploads/2024/03/MS-Dhoni.png" alt="MS Dhoni" class="mx-auto mb-6 rounded-full w-32 h-32 object-cover border-4 border-cskYellow" />
+          <h3 class="text-2xl font-semibold">MS Dhoni</h3>
+          <p class="text-gray-400 mt-2">Captain & Wicketkeeper</p>
+        </div>
+        <div class="card rounded-3xl p-8 text-center shadow-2xl transition hover:scale-105 delay-100">
+          <img src="https://i.pinimg.com/736x/47/51/26/47512678e9bd8aadd76530d37ba2d499.jpg" alt="Ruturaj Gaikwad" class="mx-auto mb-6 rounded-full w-32 h-32 object-cover border-4 border-cskYellow" />
+          <h3 class="text-2xl font-semibold">Ruturaj Gaikwad</h3>
+          <p class="text-gray-400 mt-2">Opening Batsman</p>
+        </div>
+        <div class="card rounded-3xl p-8 text-center shadow-2xl transition hover:scale-105 delay-200">
+          <img src="https://www.indiablooms.com/storage/assets/n/2024/1688b5c706650df85111833d005cff62.jpg" alt="Ravindra Jadeja" class="mx-auto mb-6 rounded-full w-32 h-32 object-cover border-4 border-cskYellow" />
+          <h3 class="text-2xl font-semibold">Ravindra Jadeja</h3>
+          <p class="text-gray-400 mt-2">All-rounder</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="scroll-mt-32">
+      <h2 class="text-4xl font-bold text-cskYellow mb-8">Team Stats</h2>
+      <div class="grid sm:grid-cols-3 gap-8">
+        <div class="card rounded-3xl p-8 text-center shadow-2xl transition hover:scale-105">
+          <p class="text-3xl font-bold">220</p><p class="text-gray-400">Matches</p>
+        </div>
+        <div class="card rounded-3xl p-8 text-center shadow-2xl transition hover:scale-105 delay-100">
+          <p class="text-3xl font-bold">130</p><p class="text-gray-400">Wins</p>
+        </div>
+        <div class="card rounded-3xl p-8 text-center shadow-2xl transition hover:scale-105 delay-200">
+          <p class="text-3xl font-bold">5</p><p class="text-gray-400">Titles</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="scroll-mt-32">
+      <h2 class="text-4xl font-bold text-cskYellow mb-8">Latest News</h2>
+      <div class="space-y-6">
+        <article class="card rounded-3xl p-8 shadow-2xl hover:shadow-xl transition">
+          <h3 class="text-2xl font-semibold">Thrilling Win Over MI</h3>
+          <p class="text-gray-400 mt-2">CSK clinches a nail-biter with a last-ball six.</p>
+        </article>
+        <article class="card rounded-3xl p-8 shadow-2xl hover:shadow-xl transition delay-100">
+          <h3 class="text-2xl font-semibold">Dhoni Praises Young Talent</h3>
+          <p class="text-gray-400 mt-2">Captain cool showers praise on emerging stars.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="polls" class="scroll-mt-32">
+      <h2 class="text-4xl font-bold text-cskYellow mb-8">Fan Poll</h2>
+      <form class="card rounded-3xl p-8 max-w-md mx-auto shadow-2xl space-y-6">
+        <p class="text-xl font-semibold">Who is your MVP?</p>
+        <div class="space-y-4">
+          <label class="flex items-center space-x-3"><input type="radio" name="mvp" class="h-5 w-5 text-cskYellow focus:ring-cskYellow"/><span>MS Dhoni</span></label>
+          <label class="flex items-center space-x-3"><input type="radio" name="mvp" class="h-5 w-5 text-cskYellow focus:ring-cskYellow"/><span>Ruturaj Gaikwad</span></label>
+          <label class="flex items-center space-x-3"><input type="radio" name="mvp" class="h-5 w-5 text-cskYellow focus:ring-cskYellow"/><span>Ravindra Jadeja</span></label>
+        </div>
+        <button type="submit" class="w-full py-3 bg-cskYellow text-darkBg font-semibold rounded-full tracking-wide hover:scale-105 transition">Vote</button>
+      </form>
+    </section>
+
+    <section id="highlights" class="scroll-mt-32">
+      <h2 class="text-4xl font-bold text-cskYellow mb-8">Match Highlights</h2>
+      <div class="aspect-w-16 aspect-h-9 rounded-3xl overflow-hidden shadow-2xl">
+        <iframe src="https://www.youtube.com/embed/eqKQNvDI3vI" class="w-full h-full" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="py-8 text-center border-t border-gray-700">
+    <p>&copy; 2025 Aditya Prakash</p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    themeToggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      document.getElementById('icon-light').classList.toggle('hidden');
+      document.getElementById('icon-dark').classList.toggle('hidden');
+    });
+    window.addEventListener('DOMContentLoaded', () => {
+      const iconLight = document.getElementById('icon-light');
+      const iconDark = document.getElementById('icon-dark');
+      if (root.getAttribute('data-theme') === 'light') {
+        iconLight.classList.remove('hidden');
+        iconDark.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
